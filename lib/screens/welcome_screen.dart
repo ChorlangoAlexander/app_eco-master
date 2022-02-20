@@ -63,7 +63,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
                   ),
                   Text(
                     '¿Estas listo para cambiar el mundo?',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 100),
                   welcomeButton,
