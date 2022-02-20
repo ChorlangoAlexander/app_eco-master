@@ -12,78 +12,56 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  User? user = FirebaseAuth.instance.currentUser;
-  UserModel usuarioLogeado = UserModel();
-
-  void initState() {
-    super.initState();
-    FirebaseFirestore.instance
-        .collection('users')
-        .doc(user!.uid)
-        .get()
-        .then((value) {
-      this.usuarioLogeado = UserModel.fromMap(value.data());
-      setState(() {});
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Bienvenido'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 150,
-                child: Image.asset(
-                  'assets/cont.jpg',
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Text(
-                'Bienvenido',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text('${usuarioLogeado.nombres} ${usuarioLogeado.apellidos}',
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                  )),
-              Text('${usuarioLogeado.email}',
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                  )),
-              SizedBox(
-                height: 15,
-              ),
-              ActionChip(
-                  label: Text('Cerrar Sesión'),
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => loginScreen()));
-                  })
-            ],
+        backgroundColor: Colors.green,
+        title: Text('EcoAmigo'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.search),
           ),
-        ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.menu),
+          )
+        ],
       ),
+      body: SingleChildScrollView(
+          child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.green[500],
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 10.0),
+                  child: Column(children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                            radius: 25.0,
+                            backgroundImage: NetworkImage(
+                                'https://bysperfeccionoral.com/wp-content/uploads/2020/01/136-1366211_group-of-10-guys-login-user-icon-png.jpg')
+                                ),
+                                
+                      ],
+                    )
+                  ]),
+                ),
+              )
+            ]),
+      )),
     );
-  }
-
-  Future<void> cerrarSesion(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => loginScreen()));
   }
 }

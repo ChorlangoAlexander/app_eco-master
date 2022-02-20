@@ -1,5 +1,8 @@
 //import 'package:app_eco/screens/home_screen.dart';
-import 'package:app_eco/screens/home_screen.dart';
+import 'dart:html';
+
+import 'package:app_eco/model/google_auth.dart';
+import 'package:app_eco/screens/profile_screen.dart';
 import 'package:app_eco/screens/registro_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
@@ -7,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class loginScreen extends StatefulWidget {
   //loginScreen({Key? key}) : super(key: key);
@@ -126,7 +130,11 @@ class _loginScreenState extends State<loginScreen> {
             FloatingActionButton(
                 heroTag: null,
                 child: Icon(FontAwesomeIcons.google),
-                onPressed: () {}),
+                onPressed: () async {
+                  User? user =
+                      await Authenticator.IniciarSesionGoogle(context: context);
+                  print(user?.displayName);
+                }),
             FloatingActionButton(
                 child: Icon(FontAwesomeIcons.facebook), onPressed: () {}),
           ],
@@ -188,7 +196,7 @@ class _loginScreenState extends State<loginScreen> {
           .then((uid) => {
                 Fluttertoast.showToast(msg: 'inicio de sesión correcto'),
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => homeScreen()))
+                    MaterialPageRoute(builder: (context) => profileScreen()))
               })
           .catchError((e) {
         Fluttertoast.showToast(msg: e!.message);

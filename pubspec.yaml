@@ -39,7 +39,7 @@ dependencies:
   firebase_core:
   fluttertoast:
   font_awesome_flutter:
-  #google_sign_in:
+  google_sign_in:
  # provider: ^6.0.2
 
 dev_dependencies:
