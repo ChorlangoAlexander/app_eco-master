@@ -40,6 +40,7 @@ dependencies:
   fluttertoast:
   font_awesome_flutter:
   google_sign_in:
+  curved_navigation_bar: ^1.0.3
  # provider: ^6.0.2
 
 dev_dependencies:
