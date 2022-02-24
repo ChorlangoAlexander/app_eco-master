@@ -1,5 +1,5 @@
 import 'package:app_eco/model/user_model.dart';
-import 'package:app_eco/screens/home_screen.dart';
+import 'package:app_eco/screens/Home/home_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';

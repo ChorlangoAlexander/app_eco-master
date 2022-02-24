@@ -1,5 +1,5 @@
-import 'package:app_eco/screens/home_screen.dart';
-import 'package:app_eco/screens/login_screen.dart';
+import 'package:app_eco/screens/Home/home_screen.dart';
+import 'package:app_eco/screens/Aunth/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class welcomeScreen extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:app_eco/model/user_model.dart';
-import 'package:app_eco/screens/login_screen.dart';
+import 'package:app_eco/screens/Aunth/login_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +30,14 @@ class _profileScreenState extends State<profileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Bienvenido'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text('Perfil'), centerTitle: true, actions: [
+        InkWell(
+          onTap: () {},
+          child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Icon(Icons.settings)),
+        ),
+      ]),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(20),

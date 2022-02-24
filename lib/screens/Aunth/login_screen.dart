@@ -1,8 +1,9 @@
 //import 'package:app_eco/screens/home_screen.dart';
 import 'package:app_eco/model/google_auth.dart';
-import 'package:app_eco/screens/home_screen.dart';
-import 'package:app_eco/screens/profile_screen.dart';
-import 'package:app_eco/screens/registro_screen.dart';
+import 'package:app_eco/screens/Bnavigation.dart';
+import 'package:app_eco/screens/Home/home_screen.dart';
+import 'package:app_eco/screens/Perfil/profile_screen.dart';
+import 'package:app_eco/screens/Aunth/registro_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -195,7 +196,7 @@ class _loginScreenState extends State<loginScreen> {
           .then((uid) => {
                 Fluttertoast.showToast(msg: 'inicio de sesión correcto'),
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => homeScreen()))
+                    MaterialPageRoute(builder: (context) => BNavigattor()))
               })
           .catchError((e) {
         Fluttertoast.showToast(msg: e!.message);

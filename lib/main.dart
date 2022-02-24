@@ -1,4 +1,7 @@
-import 'package:app_eco/screens/welcome_screen.dart';
+import 'package:app_eco/screens/Bnavigation.dart';
+import 'package:app_eco/screens/Home/home_screen.dart';
+import 'package:app_eco/screens/Perfil/profile_screen.dart';
+import 'package:app_eco/screens/Aunth/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: welcomeScreen(),
+      home: BNavigattor(),
     );
   }
 }
