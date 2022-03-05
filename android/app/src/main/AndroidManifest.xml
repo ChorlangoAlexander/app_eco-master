@@ -1,8 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.app_eco">
+<uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="app_eco"
         android:icon="@mipmap/ic_launcher">
+        
+  <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyB-sPxke5RsYuj4SDHgP1hALeKksFyS5Ts"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

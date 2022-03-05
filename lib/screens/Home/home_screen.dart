@@ -36,7 +36,9 @@ class _homeScreenState extends State<homeScreen> {
                 child: Icon(Icons.search)),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              notificationScreen();
+            },
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 40),
                 child: Icon(Icons.notifications)),

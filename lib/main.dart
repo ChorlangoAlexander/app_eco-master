@@ -1,4 +1,6 @@
+import 'package:app_eco/screens/Aunth/login_screen.dart';
 import 'package:app_eco/screens/Bnavigation.dart';
+import 'package:app_eco/screens/Chat/chat_screen.dart';
 import 'package:app_eco/screens/Home/home_screen.dart';
 import 'package:app_eco/screens/Perfil/profile_screen.dart';
 import 'package:app_eco/screens/Aunth/welcome_screen.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: BNavigattor(),
+      home: welcomeScreen(),
     );
   }
 }

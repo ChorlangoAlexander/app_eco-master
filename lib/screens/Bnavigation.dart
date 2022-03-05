@@ -1,9 +1,13 @@
 import 'package:app_eco/screens/Chat/chat_screen.dart';
 import 'package:app_eco/screens/Home/home_screen.dart';
+import 'package:app_eco/screens/Perfil/edit_profile_screen.dart';
+import 'package:app_eco/screens/Post/add_post_screen.dart';
 import 'package:app_eco/screens/Ubicacion/location_Screem.dart';
-import 'package:app_eco/screens/notification_screen.dart';
+//import 'package:app_eco/screens/Ubicacion/location_controller.dart';
+//import 'package:app_eco/screens/notification_screen.dart';
 import 'package:app_eco/screens/Perfil/profile_screen.dart';
-import 'package:app_eco/screens/search_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:app_eco/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class BNavigattor extends StatefulWidget {
@@ -15,13 +19,14 @@ class BNavigattor extends StatefulWidget {
 
 class _BNavigattorState extends State<BNavigattor> {
   int _paginaActual = 0;
+  // ignore: prefer_final_fields
   List<Widget> _paginas = [
     //BNavigattor(),
     homeScreen(),
     chatScreen(),
-    notificationScreen(),
+    AddPossScreen(),
     locationScreem(),
-    profileScreen(),
+    profScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -42,7 +47,11 @@ class _BNavigattorState extends State<BNavigattor> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_a_photo), label: 'Inicio'),
+              icon: Icon(
+                Icons.photo_camera,
+                size: 35,
+              ),
+              label: 'Foto'),
           BottomNavigationBarItem(
               icon: Icon(Icons.location_pin), label: 'Ubicacion'),
           BottomNavigationBarItem(
